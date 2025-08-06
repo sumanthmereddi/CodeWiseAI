@@ -1,0 +1,51 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: codewiseai-backend
+  
+  # MongoDB Configuration
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: codewiseai
+      auto-index-creation: false
+  
+  # Security Configuration
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID:your-github-client-id}
+            client-secret: ${GITHUB_CLIENT_SECRET:your-github-client-secret}
+            scope:
+              - user:email
+              - read:user
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:your-jwt-secret-key-here-make-it-long-and-secure}
+  expiration: 86400000 # 24 hours in milliseconds
+
+# OpenAI Configuration
+openai:
+  api-key: ${OPENAI_API_KEY:your-openai-api-key}
+  model: gpt-4
+
+# AWS Configuration
+aws:
+  s3:
+    bucket-name: ${AWS_S3_BUCKET:codewiseai-files}
+    region: ${AWS_REGION:us-east-1}
+  ses:
+    region: ${AWS_REGION:us-east-1}
+    from-email: ${AWS_SES_FROM_EMAIL:noreply@codewiseai.com}
+
+# Logging
+logging:
+  level:
+    com.codewiseai.backend: DEBUG
+    org.springframework.security: DEBUG
