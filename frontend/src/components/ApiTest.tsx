@@ -32,6 +32,19 @@ const ApiTest: React.FC = () => {
     }
   };
 
+  const testMongoConnection = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const result = await axios.get('http://localhost:8081/api/users/test');
+      setResponse(result.data);
+    } catch (err) {
+      setError('Failed to connect to MongoDB: ' + (err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
       <h2>CodeWiseAI Backend Connection Test</h2>
@@ -66,6 +79,21 @@ const ApiTest: React.FC = () => {
           }}
         >
           {loading ? 'Testing...' : 'Test /api/health'}
+        </button>
+        
+        <button 
+          onClick={testMongoConnection}
+          disabled={loading}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#dc3545',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: loading ? 'not-allowed' : 'pointer'
+          }}
+        >
+          {loading ? 'Testing...' : 'Test MongoDB'}
         </button>
       </div>
 

@@ -8,10 +8,7 @@ spring:
   # MongoDB Configuration
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: codewiseai
-      auto-index-creation: false
+      uri: mongodb+srv://mereddisumanth:8nuGkRqcCiAkOGyl@codewise-cluster.pdd4gbn.mongodb.net/codewiseai?retryWrites=true&w=majority&appName=codewise-cluster
   
   # Security Configuration
   security:
