@@ -1,6 +1,12 @@
 
 # CodeWiseAI – AI-Powered Code Review Portal
 
+
+##Run Commands
+Frontend: npm start
+backend: .\mvnw.cmd spring-boot:run
+
+
 ## Overview
 **CodeWiseAI** is a full-stack AI-powered collaborative code review portal built with **React + TypeScript** on the frontend and **Spring Boot** on the backend. Developers can submit code snippets or GitHub pull requests for AI-assisted reviews, with human verification and intelligent workload balancing for reviewers.
 

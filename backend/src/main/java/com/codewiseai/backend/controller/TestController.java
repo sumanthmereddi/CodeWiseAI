@@ -10,11 +10,11 @@ public class TestController {
 
     @GetMapping("/test1")
     public String test1() {
-        return "Hello sumanth";
+        return "Hello sumanth1";
     }
     
     @GetMapping("/health")
     public String health() {
-        return "Application is running!";
+        return "Application is running111";
     }
 }
